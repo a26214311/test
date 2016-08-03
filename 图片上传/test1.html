@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <input type="file" id="ipt">
+  <button id="btn">show</button>
+  <div class="showbox"></div>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+<!--script>
+$('#btn').on('click', function(){
+  var img = new Image();
+  img.src = $('#ipt').val();
+  console.log($('#ipt').val());
+  console.log(img)
+  img.onload = function(){
+    $('.showbox').append(img)
+  }
+})
+</script>
+
+  <input type='file' id='file'/>
+
+  <script>
+    $(function(){
+      $("#file").change(function(e){
+        var file = e.target.files||e.dataTransfer.files;
+        if(file){
+          var reader = new FileReader();
+          reader.onload=function(){
+            $("<img src='"+this.result+"'/>").appendTo("body");
+
+          }
+
+          reader.readAsDataURL(file);
+        }
+      });
+    })
+
+  </script-->
+
+  <div id="upload-button" class="fpd-btn-raised fpd-secondary-bg-color fpd-secondary-text-color">
+    <i class="fpd-icon-file-upload"></i><span>Insérer votre image</span>
+  </div>
+  <input type="file" id="my-custom-design-upload" class="btn btn-success"/>
+  <img src="" height="200" />
+
+<script>
+  var img = $('img');
+  img.css('display', 'none');
+
+  $('#upload-button').click(function(){
+    $('#my-custom-design-upload').trigger('click');
+    return false;
+  });
+
+  function readfichier(e) {
+    if(window.FileReader) {
+      var file  = e.target.files[0];
+      var reader = new FileReader();
+      if (file && file.type.match('image.*')) {
+        reader.readAsDataURL(file);
+      } else {
+        img.css('display', 'none');
+        img.attr('src', '');
+      }
+      reader.onloadend = function (e) {
+        img.attr('src', reader.result);
+        img.css('display', 'block');
+      }
+    }
+  }
+
+  document.getElementById('my-custom-design-upload').addEventListener('change', readfichier, false);
+</script>
+
+
+</body>
+</html>
