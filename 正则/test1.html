@@ -21,11 +21,11 @@
       '1234.bmp'
     ];
 
-    var reg_test = /\.(png|jpg)$/;
+    var reg_test = /\.(png|jpg)$/g;
 
     for(var i = 0; i < fileList.length; i++){
 
-      console.log(reg_test.test(fileList[i]), g);
+      console.log(reg_test.test(fileList[i]));
 
       if(reg_test.test(fileList[i])){
         console.log(fileList[i]);
