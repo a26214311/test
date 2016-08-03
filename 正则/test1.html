@@ -8,30 +8,31 @@
   <script>
     var fileList = [
       '1.jpg',
-      '1.png',
-      '1.bmp',
+      '1xxxx.png',
+      '1xxxxxxxx.bmp',
       '12.jpg',
       '12.png',
       '12.bmp',
       '123.jpg',
-      '123.png',
+      '123.PNG',
       '123.bmp',
       '1234.jpg',
       '1234.png',
       '1234.bmp'
     ];
 
-    var reg_test = /\.(png|jpg)$/g;
+    var reg_test = /\.(png|jpg|bmp)$/g;
+//    var reg_test = new RegExp('\.(png|jpg)$', 'gi');
 
     for(var i = 0; i < fileList.length; i++){
 
-      console.log(reg_test.test(fileList[i]));
+//      console.log(reg_test.test(fileList[i]));
 
       if(reg_test.test(fileList[i])){
         console.log(fileList[i]);
       }
     }
-
+    str.replace()
 
   </script>
 </body>
