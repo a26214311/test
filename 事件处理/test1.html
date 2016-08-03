@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #div1 {
+      border: 1px solid #000;
+      background-color: #eee;
+      width: 300px;
+      height: 300px;
+    }
+
+    #div2 {
+      border: 1px solid #f00;
+      background-color: #fee;
+      width: 200px;
+      height: 200px;
+      margin: 50px;
+    }
+
+    #div3 {
+      border: 1px solid #00F;
+      background-color: #EEF;
+      width: 100px;
+      height: 100px;
+      margin: 50px;
+    }
+
+    #div1, #div2, #div3 {
+      position: relative;
+    }
+
+    #div1 > span,
+    #div2 > span,
+    #div3 > span {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+<div id="div1">
+  <span>div1</span>
+  <div id="div2">
+    <span>div2</span>
+    <div id="div3">
+      <span>div3</span>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+  var $ = function (select) {
+    return document.getElementById(select)
+  };
+  var selects = ['div1', 'div2', 'div3'];
+  for (var i = 0; i < selects.length; i++) {
+    // 事件捕获阶段
+    $(selects[i]).addEventListener('click', function (e) {
+      console.log('---' + this.id + '事件捕获---')
+    }, true);
+    // 事件冒泡阶段（默认）
+    $(selects[i]).addEventListener('click', function (e) {
+      console.log('---' + this.id + '事件冒泡---')
+    }, false);
+  }
+</script>
+</html>
