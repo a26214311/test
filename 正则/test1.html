@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    var fileList = [
+      '1.jpg',
+      '1.png',
+      '1.bmp',
+      '12.jpg',
+      '12.png',
+      '12.bmp',
+      '123.jpg',
+      '123.png',
+      '123.bmp',
+      '1234.jpg',
+      '1234.png',
+      '1234.bmp'
+    ];
+
+    var reg_test = /\.(png|jpg)$/;
+
+    for(var i = 0; i < fileList.length; i++){
+
+      console.log(reg_test.test(fileList[i]), g);
+
+      if(reg_test.test(fileList[i])){
+        console.log(fileList[i]);
+      }
+    }
+
+
+  </script>
+</body>
+</html>
