@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>$!{_page.title}</title>
+    <link href="dist/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/portal/portal-wap.min.css" rel="stylesheet">
+    <link href="_theme.wap.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="ui-base-template fixed-top" style="display:none;">
+      <div class="container">
+        <div class="ui-widget-container app-download" id="widget-container-1">
+        </div>
+        <span class="fa fa-times fix-close"></span>
+      </div>
+    </div>
+    <div id="ui-layout-container" class="wrap action-bottom">
+      <div class="header fixed">
+        <div class="container">
+          <a class="fa fa-chevron-left left prev" href="javascript:history.go(-1);"></a> 
+          <h2 class="title">商品详情</h2>
+          <div class="ui-widget-container right shortcuts" id="widget-container-l-1">
+            <div class="ui-widget shortcuts-entry">
+              <a href="#" class="fa fa-th-large"></a>
+            </div>
+          </div>
+          <div class="shortcuts-panel" style="display:none;">
+            <ul class="list-inline">
+              <li><a class="fa fa-home" href="#">首页</a></li>
+              <li><a class="fa fa-list" href="#">分类</a></li>
+              <li><a class="fa fa-credit-card-alt" href="#">乐<sup>+</sup>专区</a></li>
+              <li><a class="fa fa-shopping-cart" href="#">购物车<span class="badge">1</span></a></li>
+              <li><a class="fa fa-user" href="#">会员中心</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="main-wrap">
+        <div class="container">
+          <div class="ui-widget-container pbase-wrap" id="ui-main-widget-container">
+            <div class="ui-widget product-base-info">
+              <div class="pinfo-wrap">
+                <span class="cborder cborder-1">海外直邮</span><!--产品为跨境商品时添加-->
+                <div class="brand-wrap">
+                  <a href="#" class="brand-logo"><img src="images_test/brand-logo.jpg"/></a>
+                  <a href="#" class="brand-name">Biore 碧柔</a>
+                  <a href="#" class="btn btn-xs follow">关注</a><!--未关注品牌时，类名为follow；已关注时类名改为followed-->
+                </div>
+                <div class="imgbox">
+                  <div class="carousel slide">
+                    <ol class="carousel-indicators">
+                      <li class="active"></li>
+                      <li></li>
+                      <li></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="images_test/pro-preview.jpg"/>
+                      </div>
+                    </div>
+                  </div>
+                  <i class="cc cc-65e5672c"></i>
+                  <i class="soldout"></i><!--商品库存为0时显示-->
+                </div>
+                <div class="pinfo">
+                  <h3>花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</h3>
+                  <p class="desc">全球口碑见证，真正晒不黑！防水、防汗水、防粘沙，尤其适合海滨、超长户外运动时使用，拥有SPF50pa+++的超强防黑防晒功力，令你怎么玩都晒不黑。水感亲肤质地，好吸收，不黏腻、全身皆可用！</p><!--产品简介-->
+                  <div class="price-wrap">
+                    <p class="price"><em><span>¥</span>55</em><s>¥98</s><small>国内参考价：¥95</small></p><!--small标签中为国内参考价字段，不为空时显示-->
+                    <p class="vip-price"><span class="vip">乐<sup>+</sup>会员价：¥50</span><a href="#" target="_blank">加入乐<sup>+</sup>会员</a>，再省<em>5</em>元！</p><!--对plus会员，显示和普通会员的价差-->
+                    <!--<p class="vip-price">比普通会员更多省<em>5</em>元</p>--><!--对plus会员，显示和普通会员的价差--><!--对非plus会员，显示金卡会员价和加入plus会员页链接-->
+                  </div>
+                  <div class="tax-wrap"><!--商品关联税率时生成dom节点-->
+                    <label>关税：</label>
+                    <span>本商品适用税率为10%</span>
+                  </div>
+                  <div class="sku-wrap active"><!--商品有关联的sku时生成dom节点-->
+                    <div class="sku-click"><!--点击时打开sku-panel（给sku-wrap添加active类）-->
+                      <label>已选：</label>
+                      <div class="sku-current"><!--默认按顺序列出当前产品的sku规格值-->
+                        <span>颜色：红色</span>
+                        <span>尺码：S</span>
+                      </div>
+                      <div class="sku-sel-no">
+                        <span>1件</span><!--默认选择数量为1-->
+                        <!--<em>暂时缺货</em><!--商品库存为0时显示无货，加em标签-->
+                      </div>
+                    </div>
+                    <div class="sku-panel">
+                      <div class="sku-category">
+                        <label>颜色：</label>
+                        <ul class="list-inline">
+                          <li class="active"><a href="#">红色</a></li><!--选中时添加active类-->
+                          <li><a href="#">黄色</a></li>
+                          <li class="disabled"><a href="#">蓝色</a></li><!--不可选时添加disabled类-->
+                        </ul>
+                      </div>
+                      <div class="sku-category">
+                        <label>尺码：</label>
+                        <ul class="list-inline">
+                          <li><a href="#">S</a></li>
+                          <li class="active"><a href="#">M</a></li>
+                          <li><a href="#">L</a></li>
+                        </ul>
+                      </div>
+                      <div class="sku-no">
+                        <label>数量：</label>
+                        <div class="input-group">
+                          <a href="#" class="input-group-addon minus disabled"></a><!--不可用时添加disable类-->
+                          <input type="text" class="form-control" value="1">
+                          <a href="#" class="input-group-addon plus"></a>
+                        </div>
+                        <span>库存充足</span>
+                        <!--<span>还剩<em>2</em>件</span>--><!--当库存总数大于等于10时，显示“库存充足”，少于10时显示剩余数量-->
+                      </div>
+                    </div>
+                  </div>            
+                </div>
+              </div>
+              <div class="pnav">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#">商品详情</a></li>
+                  <li><a href="#">用户评价<em>88</em></a></li><!--点击时给pro-detail添加display:none;-->
+                  <li><a href="#">常见问题</a></li><!--跨境商品时显示。点击时给pro-detail, user-ratings添加display:none-->
+                </ul>
+              </div>
+              <div class="actions">
+                <a href="#" class="fav"><i class="fa"></i>心愿单</a><!--不在心愿单时添加类fav，已在心愿单显示unfav-->
+                <a href="#" class="shopping-cart-entry"><i class="fa fa-shopping-cart"></i>购物车<span class="badge">2</span></a>
+                <a href="#" class="addcart">加入购物车</a>
+                <a href="#" class="buy">立即购买</a>
+              </div>
+            </div>
+          </div>
+          <div class="pmain-wrap">
+            <div id="import-product-detail">
+              <iframe border="0" frameborder="0"></iframe><!--注入详情对应文章内容-->
+            </div>
+            <div class="ui-widget-container" id="widget-container-l-2">
+              <div class="ui-widget user-ratings">
+                <div class="r-count-wrap">
+                  <div class="r-count rate-1"><!--根据分数由低到高加rate-1/rate-2/rate-3/rate-4/rate-5类-->
+                    <span class="fa"></span><span><em>88.8</em>%好评</span>
+                  </div>
+                  <div class="actions">
+                    <span>您可对已购买的商品进行评价</span>
+                    <a href="#" class="btn btn-default" target="_blank">立即评价</a><!--链接到用户中心-我的订单-->
+                  </div>
+                </div>
+                <div class="comment-nav">
+                  <ul class="nav nav-tabs r-sort">
+                    <li class="active"><a href="#">全部<span>100</span></a></li>
+                    <li><a href="#">好评<span>88</span></a></li>
+                    <li><a href="#">中评<span>12</span></a></li>
+                    <li><a href="#">差评<span>0</span></a></li>
+                    <li><a href="#">晒单<span>20</span></a></li>
+                  </ul>
+                </div>
+                <div class="comment-wrap">
+                  <ul class="comment-list">
+                    <li class="clearfix comment-item top"><!--对置顶的评价添加top类-->
+                      <div class="c-content">
+                        <span class="rate-5"><i class="fa"></i></span><!--根据分数由低到高加rate-1/rate-2/rate-3/rate-4/rate-5类-->
+                        <p>第一次在乐悠乐购买东西，太给力了，价格便宜，而且物流速度很快，这个外包装真的下了重本啊 超结实的 希望一直包邮！！</p>
+                      </div>
+                      <div class="c-info">
+                        <span class="c-user">汪喵</span>
+                        <span class="c-time">2016-04-21 06:13</span>
+                      </div>
+                    </li>
+                    <li class="clearfix comment-item top"><!--对置顶的评价添加top类-->
+                      <div class="c-content">
+                        <span class="rate-4"><i class="fa"></i></span><!--根据分数由低到高加rate-1/rate-2/rate-3/rate-4/rate-5类-->
+                        <p>第一次在乐悠乐购买东西，太给力了，价格便宜，而且物流速度很快，这个外包装真的下了重本啊 超结实的 希望一直包邮！！</p>
+                      </div>
+                      <div class="c-info">
+                        <span class="c-user">汪喵</span>
+                        <span class="c-time">2016-04-21 06:13</span>
+                      </div>
+                    </li>
+                    <li class="clearfix comment-item">
+                      <div class="c-content">
+                        <span class="rate-3"><i class="fa"></i></span><!--根据分数由低到高加rate-1/rate-2/rate-3/rate-4/rate-5类-->
+                        <p>第一次在乐悠乐购买东西，太给力了，价格便宜，而且物流速度很快，这个外包装真的下了重本啊 超结实的 希望一直包！！</p>
+                      </div>
+                      <div class="c-info">
+                        <span class="c-user">汪喵</span>
+                        <span class="c-time">2016-04-21 06:13</span>
+                      </div>
+                    </li>
+                    <li class="clearfix comment-item">
+                      <div class="c-content">
+                        <span class="rate-5"><i class="fa"></i></span><!--根据分数由低到高加rate-1/rate-2/rate-3/rate-4/rate-5类-->
+                        <p>第一次在乐悠乐购买东西，太给力了，价格便宜，而且物流速度很快，这个外包装真的下了重本啊 超结实的 希望一直包邮！！</p>
+                        <ul class="c-imgs" style=""><!--评价中有图片时显示；点击缩略图时添加display:none-->
+                          <li><a href="#"><img src="images_test/pro-img-s.jpg"/></a></li>
+                          <li><a href="#"><img src="images_test/pro-img-s.jpg"/></a></li>
+                          <li><a href="#"><img src="images_test/pro-img-s.jpg"/></a></li>
+                          <li><a href="#"><img src="images_test/pro-img-s.jpg"/></a></li>
+                          <li><a href="#"><img src="images_test/pro-img-s.jpg"/></a></li>
+                          <li><a href="#"><img src="images_test/pro-img-s.jpg"/></a></li>
+                          <li><a href="#"><img src="images_test/pro-img-s.jpg"/></a></li>
+                        </ul>
+                        <div class="c-img-preview" style="display:none;"><!--默认添加display:none，点击缩略图打开时去掉-->
+                          <div class="header fixed">
+                            <div class="container">
+                              <a class="fa fa-chevron-left left prev" href="#"></a><!--点击直接隐藏c-img-preview-->
+                              <h2 class="title">1/2</h2><!--当前第x张/共y张-->
+                            </div>
+                          </div>
+                          <ul class="list-inline c-imgs-p"><!--评价中有图片时显示-->
+                            <li class="active"><img src="images_test/pro-img.jpg"/></li>
+                            <li><img src="images_test/pro-img.jpg"/></li>
+                            <li><img src="images_test/pro-img.jpg"/></li>
+                            <li><img src="images_test/pro-img.jpg"/></li>
+                            <li><img src="images_test/pro-img.jpg"/></li>
+                            <li><img src="images_test/pro-img.jpg"/></li>      
+                            <li><img src="images_test/pro-img.jpg"/></li>
+                          </ul>
+                          <a href="#" class="fa fa-chevron-left prev disabled"></a><!--第1张时添加disabled类-->
+                          <a href="#" class="fa fa-chevron-right next"></a><!--最后1张时添加disabled类-->
+                        </div>
+                      </div>
+                      <div class="c-info">
+                        <span class="c-user">汪喵</span>
+                        <span class="c-time">2016-04-21 06:13</span>
+                      </div>
+                    </li>
+                    <li class="clearfix comment-item">
+                      <div class="c-content">
+                        <span class="rate-2"><i class="fa"></i></span><!--根据分数由低到高加rate-1/rate-2/rate-3/rate-4/rate-5类-->
+                        <p>第一次在乐悠乐购买东西，太给力了，价格便宜，而且物流速度很快，这个外包装真的下了重本啊 超结实的 希望一直包邮！！</p>
+                      </div>
+                      <div class="c-info">
+                        <span class="c-user">汪喵</span>
+                        <span class="c-time">2016-04-21 06:13</span>
+                      </div>
+                    </li>
+                    <li class="clearfix comment-item">
+                      <div class="c-content">
+                        <span class="rate-5"><i class="fa"></i></span><!--根据分数由低到高加rate-1/rate-2/rate-3/rate-4/rate-5类-->
+                        <p>第一次在乐悠乐购买东西，太给力了，价格便宜，而且物流速度很快，这个外包装真的下了重本啊 超结实的 希望一直包邮！！</p>
+                      </div>
+                      <div class="c-info">
+                        <span class="c-user">汪喵</span>
+                        <span class="c-time">2016-04-21 06:13</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="ui-widget cborder-note"><!--跨境商品时显示-->
+                <div class="procedure">
+                  <div class="title">
+                    <h4>保税区发货</h4>
+                  </div>
+                  <div class="p-content">
+                    <img src="images_test/cborder_procedure_m.png"/>
+                  </div>
+                </div>
+                <div class="faq">
+                  <div class="title">
+                    <h4>常见问题</h4>
+                  </div>
+                  <dl class="f-content">
+                    <dt class="ques active">1. 什么是保税区发货？</dt><!--点击打开dd的内容，添加open类-->
+                    <dd class="ans">保税区是经国务院批准设立的、海关实施特殊监管的经济区域。根据现行政策，海关对保税区实行封闭管理，境外货品进入保税区实行保税管理，同时对保税区也实行较区外相对优惠的政策。保税区发货是新一代海淘模式：乐悠乐购从海外直接采购商品，100%正品保障，批量运输回国降低运费成本，在海关和国检部门的监控下储存在保税区仓库。当您在乐悠乐购网站下单后，商品将直接从国内保税区仓库快递发出。和传统的代购等海淘模式相比，保税区发货不仅让您享受更优惠的商品价格，同时还享受到国内的物流速度。</dd>
+                    <dt class="ques">2. 下单后需要多久才能收到商品？</dt>
+                    <dd class="ans">一般情况下，您的订单将在下单当天或次日包装出库，海关清关需要2-3个工作日，所以您的订单将于3-5个工作日内送关发货。发货后，您可以在“我的订单”中查看物流情况。一般情况下，您将在后续1-5工作日内收到订单包裹，具体时间根据具体收货地址而定。</dd>
+                    <dt class="ques">3. 海关如何收取税费？</dt>
+                    <dd class="ans">我们储存在保税区仓库中商品都是跨境贸易进口商品，需要依法向海关申报及纳税。商品适用税率请以购物时的提示为准。</dd>
+                    <dt class="ques">4. 为什么需要实名认证？</dt>
+                    <dd class="ans">根据《关于跨境电子商务零售进口税收政策的通知》，跨境电子商务零售进口商品购买人（订购人）的身份信息应进行认证；未进行认证的，购买人（订购人）身份信息应与付款人一致。</dd>
+                  </dl>
+                  <div class="f-attention">
+                    <h5>乐悠乐购消费者告知书</h5>
+                    <p><strong>尊敬的乐悠乐购会员：</strong></p>
+                    <p>在您选购跨境商品前，请仔细阅读本文，同意本文所告知内容后再下单购买：</p>
+                    <p>1. 您在乐悠乐购网站上购买的跨境商品，仅限个人自用不得进行再销售。</p>
+                    <p>2. 您在乐悠乐购网站上购买跨境商品时，自动视为您同意由乐悠乐购代您向中国海关进行申报和代缴税费，因此在下单时需要提供您的真实姓名和身份证号进行实名身份信息注册认证。</p>
+                    <p>3. 您购买的境外商品适用的品质、健康、标识等项目使用标准均按照原产国使用标准，可能与我国标准有所不同，所以在使用过程中产生的危害或损失以及其他风险，将由您个人承担。</p>
+                    <p>4. 商品本身可能无中文标签，您可以查看网站的翻译或者在线联系我们的客服。</p>
+                  </div>
+                </div>
+              </div>
+              <div class="ui-widget rel-pros grid"><!--相关产品组件，根据产品标签匹配对应个数的产品，个数可设置-->
+                <div class="product-tit">
+                  <h2><span>相关产品</span></h2>
+                </div>
+                <ul class="pro-list">
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-65e5672c"></i>
+                      <i class="pro-tag pro-new"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><s>¥60</s><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-5fb756fd"></i>
+                      <i class="pro-tag pro-hot"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><s>¥60</s><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                       <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-65e5672c"></i>
+                      <i class="soldout"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-65e5672c"></i>
+                      <i class="pro-tag pro-new"></i>   
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                     <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-5fb756fd"></i>
+                      <i class="pro-tag pro-hot"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-65e5672c"></i>
+                      <i class="soldout"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-65e5672c"></i>
+                      <i class="pro-tag pro-new"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-5fb756fd"></i>
+                      <i class="pro-tag pro-hot"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                </ul> 
+              </div>
+              <div class="ui-widget product-group grid">
+                <div class="product-tit">
+                  <h2><span>大家都在买</span></h2>
+                </div>
+                <ul class="pro-list">
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-65e5672c"></i>
+                      <i class="pro-tag pro-new"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><s>¥60</s><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-5fb756fd"></i>
+                      <i class="pro-tag pro-hot"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><s>¥60</s><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                       <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-65e5672c"></i>
+                      <i class="soldout"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-65e5672c"></i>
+                      <i class="pro-tag pro-new"></i>   
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                     <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-5fb756fd"></i>
+                      <i class="pro-tag pro-hot"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-65e5672c"></i>
+                      <i class="soldout"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-65e5672c"></i>
+                      <i class="pro-tag pro-new"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                  <li class="pro-item">
+                    <a class="pro-img" href="#" target="_blank">
+                      <img src="images_test/pro-img.jpg"/>
+                      <i class="cc cc-5fb756fd"></i>
+                      <i class="pro-tag pro-hot"></i>
+                    </a>
+                    <div class="pro-content">
+                      <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                      <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                    </div>
+                    <div class="actions">
+                      <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                    </div>
+                  </li>
+                </ul> 
+              </div>
+              <div class="ui-widget guess-u-like grid columns-3">
+              <div class="product-tit">
+                <h2><span>猜您喜欢</span></h2>
+              </div>
+              <ul class="pro-list">
+                <li class="pro-item">
+                  <a class="pro-img" href="#" target="_blank">
+                    <img src="images_test/pro-img.jpg"/>
+                    <i class="cc cc-65e5672c"></i>
+                    <i class="pro-tag pro-new"></i>
+                  </a>
+                  <div class="pro-content">
+                    <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                    <p class="price"><em><span>¥</span>55</em><s>¥60</s><small>国内参考价：¥95</small></p>
+                  </div>
+                  <div class="actions">
+                    <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                  </div>
+                </li>
+                <li class="pro-item">
+                  <a class="pro-img" href="#" target="_blank">
+                    <img src="images_test/pro-img.jpg"/>
+                    <i class="cc cc-5fb756fd"></i>
+                    <i class="pro-tag pro-hot"></i>
+                  </a>
+                  <div class="pro-content">
+                    <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                    <p class="price"><em><span>¥</span>55</em><s>¥60</s><small>国内参考价：¥95</small></p>
+                  </div>
+                  <div class="actions">
+                     <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                  </div>
+                </li>
+                <li class="pro-item">
+                  <a class="pro-img" href="#" target="_blank">
+                    <img src="images_test/pro-img.jpg"/>
+                    <i class="cc cc-65e5672c"></i>
+                    <i class="soldout"></i>
+                  </a>
+                  <div class="pro-content">
+                    <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                    <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                  </div>
+                  <div class="actions">
+                    <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                  </div>
+                </li>
+                <li class="pro-item">
+                  <a class="pro-img" href="#" target="_blank">
+                    <img src="images_test/pro-img.jpg"/>
+                    <i class="cc cc-65e5672c"></i>
+                    <i class="pro-tag pro-new"></i>   
+                  </a>
+                  <div class="pro-content">
+                    <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                    <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                  </div>
+                  <div class="actions">
+                    <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                  </div>
+                </li>
+                <li class="pro-item">
+                   <a class="pro-img" href="#" target="_blank">
+                    <img src="images_test/pro-img.jpg"/>
+                    <i class="cc cc-5fb756fd"></i>
+                    <i class="pro-tag pro-hot"></i>
+                  </a>
+                  <div class="pro-content">
+                    <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                    <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                  </div>
+                  <div class="actions">
+                    <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                  </div>
+                </li>
+                <li class="pro-item">
+                  <a class="pro-img" href="#" target="_blank">
+                    <img src="images_test/pro-img.jpg"/>
+                    <i class="cc cc-65e5672c"></i>
+                    <i class="soldout"></i>
+                  </a>
+                  <div class="pro-content">
+                    <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                    <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                  </div>
+                  <div class="actions">
+                    <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                  </div>
+                </li>
+                <li class="pro-item">
+                  <a class="pro-img" href="#" target="_blank">
+                    <img src="images_test/pro-img.jpg"/>
+                    <i class="cc cc-65e5672c"></i>
+                    <i class="pro-tag pro-new"></i>
+                  </a>
+                  <div class="pro-content">
+                    <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                    <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                  </div>
+                  <div class="actions">
+                    <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                  </div>
+                </li>
+                <li class="pro-item">
+                  <a class="pro-img" href="#" target="_blank">
+                    <img src="images_test/pro-img.jpg"/>
+                    <i class="cc cc-5fb756fd"></i>
+                    <i class="pro-tag pro-hot"></i>
+                  </a>
+                  <div class="pro-content">
+                    <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                    <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                  </div>
+                  <div class="actions">
+                    <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                  </div>
+                </li>
+                <li class="pro-item">
+                  <a class="pro-img" href="#" target="_blank">
+                    <img src="images_test/pro-img.jpg"/>
+                    <i class="cc cc-65e5672c"></i>
+                    <i class="soldout"></i>
+                  </a>
+                  <div class="pro-content">
+                    <h3><a href="#" target="_blank">花王 Biore 碧柔 UV干爽水感防晒霜 SPF50 PA++ 50g</a><small>水感防晒 清爽不油腻</small></h3>
+                    <p class="price"><em><span>¥</span>55</em><small>国内参考价：¥95</small></p>
+                  </div>
+                  <div class="actions">
+                    <a href="#" class="fa fa-cart-plus shopping-cart">加入购物车</a>
+                  </div>
+                </li>
+              </ul>          
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui-base-template footer">
+      <div class="container">
+        <div class="ui-widget-container unique account" id="widget-container-2">
+          <div class="ui-widget account-entry-n">
+            <!--<div class="not-login">
+              <a href="#" target="_self" class="btn-login">登录</a>
+              <span class="sep">|</span>
+              <a href="#" target="_self" class="btn-register">激活邀请码</a>
+            </div>-->
+            <div class="logged-in">
+              <a class="btn-user-center" href="#">进入个人中心</a>
+              <span class="sep">|</span>
+              <a class="btn-site-entry" href="#">开启购物体验</a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>© 2016 乐悠乐购</p>
+        </div>
+      </div>
+    </div>
+    <div class="ui-base-template sidebar">
+      <div class="ui-widget-container side-links" id="widget-container-3">
+      </div>
+      <div id="gotop" style="display:block;">
+        <a href="#"><i class="fa fa-chevron-up"></i></a>
+      </div>
+    </div>
+    <script src="${_libs.bootstrap_js_3p3p6}"></script>
+  </body>
+</html>
