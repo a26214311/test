@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test1</title>
+</head>
+<body>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+<script>
+  var test_data = function () {
+    _this = this;
+  };
+
+  test_data.prototype.ajaxData = function (reqUrl, reqList, resType) {
+    $.ajax({
+      url: reqUrl,
+      data: reqList,
+      async: false,
+      dataType: resType,
+      success: function (data) {
+        _this.data = data;
+      }
+    });
+    _this = this;
+    return this.data;
+  };
+
+  var test1 = new test_data;
+  console.log(test1.ajaxData('test2.html', '', 'html'));
+</script>
+</body>
+</html>
