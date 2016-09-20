@@ -27,12 +27,13 @@
 　　例如：
 ```
 // 用纯js在react中创建a标签
-var newDom=react.createelement('a', {
-    href:="" 'https:="" facebook.github.io="" react="" '
-},="" 'hello!');=""
-```="" 用jsx在react中创建a标签="" var="" newdom="<a" href="https://facebook.github.io/react/">Hello!;
+var newDom=<React.createElement('a', {href: 'https://facebook.github.io/react/'}, 'Hello!');
 ```
 
+```
+// 用jsx在react中创建a标签
+var newDom=<a href="https://facebook.github.io/react/">Hello!</a>;
+```
 　　要让浏览器认识这种新的语法，就需要下面介绍的babel了。
 
 ### babel
@@ -41,7 +42,7 @@ var newDom=react.createelement('a', {
 
 * 一种是浏览器来编译，因为实时编译会很慢，所以适合代码量比较小的。只需在html中引用：
 
-```html
+```
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
 ```
 
@@ -50,12 +51,12 @@ var newDom=react.createelement('a', {
 ```
 //在webpack.config.js文件中配置
 module.exports = {
-module: {
-    loaders: [{
-        test: /\.jsx?$/,
-        loader: 'babel'
-    }]
-}
+	module: {
+    	loaders: [{
+      	test: /\.jsx?$/,
+      	loader: 'babel'
+    	}]
+	}
 }
 ```
 　　可以在本地编译好代码后，再将编译后的代码给html引用，提高性能，适合大项目。
@@ -76,30 +77,30 @@ module: {
 　　以下是本章要用到的代码框架(一个helloword的demo) :
 
 ```html
-
-
-
-   <meta charset="utf-8">
-   <title>demo</title>
-
-
-   <div id="example"></div>
-   <script src="./build/react.js"></script>
-   <script src="./build/react-dom.js"></script>
-   <script src="./build/browser.min.js"></script>
-   <script type="text/babel">
-     // react代码写到这里
-     ReactDOM.render(<h1>hello word!</h1>,document.getElementById('example'));
-   </script>
-
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>demo</title>
+  </head>
+  <body>
+    <div id='example'></div>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <script type="text/babel">
+      // react代码写到这里
+      ReactDOM.render(<h1>hello word!</h1>,document.getElementById('example'));
+    </script>
+  </body>
+</html>
 ```
 
 * 方式二：使用npm + webpack
 　　篇幅限制，下篇说，欢迎看第二篇。
 
 ## 学会react的基本语法
-　　一般从定义到使用组件的流程是：定义组件creatClass,实现render方法-&gt;将组件渲染到页面ReactDOM.render()。
+　　一般从定义到使用组件的流程是：定义组件creatClass,实现render方法->将组件渲染到页面ReactDOM.render()。
 ### 创建ReactElement
 　　ReactElement对象可以看成是虚拟DOM树。它既是渲染组件ReactDOM.render(root,container)的第一个参数，又是创建组件React.createClass中render方法的返回值。记住ReactElement是唯一父节点的’dom树‘就好。
 
@@ -107,9 +108,9 @@ module: {
 
 ```
 React.createElement(
- string/ReactClass type, //type组件类型可以是内置的标签，如div；也可以是由React.createClass(object specification)创建的虚拟组件
- [object props], // 标签属性,数组
- [children ...],// 标签的innerHtml
+  string/ReactClass type, //type组件类型可以是内置的标签，如div；也可以是由React.createClass(object specification)创建的虚拟组件
+  [object props], // 标签属性,数组
+  [children ...],// 标签的innerHtml
 )//返回类型是ReactElement
 ```
 
@@ -120,7 +121,7 @@ var newDom=React.createElement('a', {href: 'https://facebook.github.io/react/'},
 * jsx实现
 
 ```
-<a href="">Hello</a>
+<a href=''>Hello</a>
 ```
 
 ### 把组件渲染到浏览器中
@@ -142,107 +143,107 @@ ReactDOM.render(<h1>hello word!</h1>,document.getElementById('example'));
 
 ### 创建组件
 　　组件是一个自定义的js对象，在es5中使用React.createClass();在es6中必须继承React.component。
-　　其中有个特殊的render方法，返回ReactElement对象。该方法会在我们使用JSX语法的标签<myelement>时被调用，因此我们在渲染组件时第一个参数可以使用<myelement>自定义标签或者createElement。
-　　如：`ReactDOM.render(<myelement>,document.getElementById('example'))`  　　   　
+　　其中有个特殊的render方法，返回ReactElement对象。该方法会在我们使用JSX语法的标签<MyElement />时被调用，因此我们在渲染组件时第一个参数可以使用<MyElement />自定义标签或者createElement。
+　　如：`ReactDOM.render(<MyElement />,document.getElementById('example'))`  　　   　
 * es5
 
 ```
 var NewDom = React.createClass({//类名一定要大写开头
-   render: function() {
-       return (
-           <ol>
-             {
-               React.Children.map(this.props.children, function (child) {
-                 //获得元素的子元素
-                 console.info(this);
-                 console.info('child:'+child);
-                 return <li>{child}</li>;//变量用花括号标识
-               })//因为有多个子元素，所以返回的是数组。按照JSX变量是数组来解析。
-             }
-           </ol>
-      );
-   }
+    render: function() {
+        return (
+            <ol>
+              {
+                React.Children.map(this.props.children, function (child) {
+                  //获得元素的子元素
+                  console.info(this);
+                  console.info('child:'+child);
+                  return <li>{child}</li>;//变量用花括号标识
+                })//因为有多个子元素，所以返回的是数组。按照JSX变量是数组来解析。
+              }
+            </ol>
+       );
+    }
 });
 ReactDOM.render(
-   <newdom>
-       <span>lala</span>
-       <span>ass</span>
-   </newdom>,
-    document.getElementById('example')
+    <NewDom>
+        <span>lala</span>
+        <span>ass</span>
+    </NewDom>,
+     document.getElementById('example')
 );
 ```
 * es6
 
 ```
 class NewDom extends React.Component{
-   render() {//开头花括号一定要和小括号隔一个空格，否则识别不出来
-       return <ol>//标签开头一定要和return一行
-         {
-            React.Children.map(this.props.children, function (child) {
-                  return <li>{child}</li>;
-            })
-         }
-       </ol>;
-   }
+    render() {//开头花括号一定要和小括号隔一个空格，否则识别不出来
+        return <ol>//标签开头一定要和return一行
+          {
+             React.Children.map(this.props.children, function (child) {
+                   return <li>{child}</li>;
+             })
+          }
+        </ol>;
+    }
 }
 ReactDOM.render(
-   <newdom>
-       <span>lala</span>
-       <span>ass</span>
-   </newdom>,
-    document.getElementById('example')
+    <NewDom>
+        <span>lala</span>
+        <span>ass</span>
+    </NewDom>,
+     document.getElementById('example')
 );
 ```
 ###  组件的属性props
 一个js对象，对应于dom的属性。
 * 原生属性
 某些html的属性名因为正好是js得保留字，所以需要重新命名。
-* class
-   因为js中class为保留字，所以要写成className。
-   `<a classname="center"></a>`
-* style
-style属性接受由css属性构成的js对象。对于jsx来说第一是变量，第二是对象，因此要两个花括号，key值用驼峰命名法转化了，value值用引号括起来
-`<a style="{{backgroundImage:" 'url('="" +="" imgurl="" ')',font:'12px'}}=""></a>`
+	* class
+    因为js中class为保留字，所以要写成className。
+    `<a className="center"></a>`
+	* style
+	style属性接受由css属性构成的js对象。对于jsx来说第一是变量，第二是对象，因此要两个花括号，key值用驼峰命名法转化了，value值用引号括起来
+	`<a style={{backgroundImage: 'url(' + imgUrl + ')',font:'12px'}}></a>`
 * 新增属性
- this.props.children  表示组件的所有子节点，上一小节的示范代码中有介绍
+  this.props.children  表示组件的所有子节点，上一小节的示范代码中有介绍
 * 传递属性值
- 在ReactDOM.Render第一个参数中直接写入带属性的标签即可： `<a newprop="propValue"></a>` 。这样就可以在this.props['newProp']中读取值
+  在ReactDOM.Render第一个参数中直接写入带属性的标签即可： `<a newProp="propValue"></a>` 。这样就可以在this.props['newProp']中读取值
 * 设置默认属性
- * 在ES6中为属性：defaultProps(可以标识static定义在class内，也可以定义在class外)
- * 在ES5中为方法：getDefaultProps: function(){return {name:value}};
+  * 在ES6中为属性：defaultProps(可以标识static定义在class内，也可以定义在class外)
+  * 在ES5中为方法：getDefaultProps: function(){return {name:value}};
 * 属性的读取
-   this.props['propName']获得属性
+    this.props['propName']获得属性
 * 新增功能：属性校验器propTypes
 见代码示例
 * 代码示范
- * es5
+  * es5
 
 ```
 var NewDom = React.createClass({//类名一定要大写开头
-   getDefaultProps: function() {//设置默认属性
-      return {title:'133'};
-   },
-   propTypes: {
-      title:React.PropTypes.string,
-   },//属性校验器，表示必须是string
-   render: function() {
-      return <div>{this.props.title}</div>;//变量用花括号标识
-   }
+    getDefaultProps: function() {//设置默认属性
+       return {title:'133'};
+    },
+    propTypes: {
+       title:React.PropTypes.string,
+    },//属性校验器，表示必须是string
+    render: function() {
+       return <div>{this.props.title}</div>;//变量用花括号标识
+    }
 });
 ```
 
- * es6
+  * es6
 
 ```
 class NewDom extends React.Component{
- //不能再组件定义的时候定义一个属性
- render() {
-     return <div>1{this.props.title}</div>;
- }//开头花括号一定要和小括号隔一个空格，否则识别不出来
+  //不能再组件定义的时候定义一个属性
+  render() {
+      return <div >1{this.props.title}</div>;
+  }//开头花括号一定要和小括号隔一个空格，否则识别不出来
 }
 //es6 这两个属性不能写在class内。
 NewDom.propTypes={//属性校验器，表示改属性必须是bool，否则报错
- title: React.PropTypes.bool,
+  title: React.PropTypes.bool,
 }
 NewDom.defaultProps={title:'133'};//设置默认属性
 ```
@@ -254,29 +255,29 @@ NewDom.defaultProps={title:'133'};//设置默认属性
 　　是不是感觉和props有些类似？一般区分两个的原则是，可变的放在state中，不可变的放在props中。　
 
 * 初始化
-* es5
+ * es5
 
 ```
 class *** extends React.Component{
- getInitialState: function() {
-   return {liked: false};
- }
+  getInitialState: function() {
+    return {liked: false};
+  }
 }
 ```
 
-* es6
+ * es6
 
 ```
 class *** extends React.Component{
-  constructor(props) {
-   super(props);
-   this.state = {liked: false};
- }
+   constructor(props) {
+    super(props);
+    this.state = {liked: false};
+  }
 }
 ```
 * 修改值
- es5和es6中使用方法相同。
- `this.setState(新的state对象);`
+  es5和es6中使用方法相同。
+  `this.setState(新的state对象);`
 * 读取值
 其实就是读取一个js对象。
 
@@ -286,37 +287,37 @@ class *** extends React.Component{
 
 * 事件定义
 一定要注意es6中元素如何使用自定义事件。见代码。
-* es5
+	* es5
 
 ```
 var NewDom = React.createClass({//类名一定要大写开头
-   btnClick:function(ele){
-      console.info(ele);
-      console.info(this.refs.tex);
-   },
-   render: function() {
-      return <div>
-         <input type="text" ref="tex">
-         <input type="button" onclick="{this.btnClick}" value="click me">
-      </div>;//变量用花括号标识
-   }
+    btnClick:function(ele){
+       console.info(ele);
+       console.info(this.refs.tex);
+    },
+    render: function() {
+       return <div >
+          <input type="text" ref="tex" />
+          <input type="button" onClick={this.btnClick} value='click me' />
+       </div>;//变量用花括号标识
+    }
 });
 ```
 
- * es6
+  * es6
 
 ```
 class NewDom extends React.Component{
-   btnClick(){
-       console.info(this);//this为该组件类
-       console.info(this.refs.tex);//this.refs.tex为组件里面索引为tex的
-   }
-   render() {
-       return <div>
-           <input type="text" ref="tex">
-           <input type="button" onclick="{this.btnClick.bind(this)}" value="click me">
-       </div>;//注意bind后面的this
-   }
+    btnClick(){
+        console.info(this);//this为该组件类
+        console.info(this.refs.tex);//this.refs.tex为组件里面索引为tex的
+    }
+    render() {
+        return <div >
+            <input type="text" ref="tex" />
+            <input type="button" onClick={this.btnClick.bind(this)} value='click me' />
+        </div>;//注意bind后面的this
+    }
 }
 ```
 
@@ -325,8 +326,8 @@ class NewDom extends React.Component{
 
 ```
 handleChange: function(event) {
-   this.setState({value: event.target.value});//event.target.value元素的值
- }
+    this.setState({value: event.target.value});//event.target.value元素的值
+  }
 ```
 
 每个控件取值不一样，value是指input控件，下拉框为selected，radiobutton为checked。a标签是innerHtml。可以自己通过console.info(e.target)  调试出自己想要的那个字段
@@ -338,21 +339,21 @@ handleChange: function(event) {
 
 ```
 render() {//开头花括号一定要和小括号隔一个空格，否则识别不出来
-  return <ol>//标签前一半一定要和return一行
-    {
-       React.Children.map(this.props.children, function (child) {
-          return <li>{child}</li>;
-       })
-     }
-  </ol>;
+   return <ol>//标签前一半一定要和return一行
+     {
+        React.Children.map(this.props.children, function (child) {
+           return <li>{child}</li>;
+        })
+      }
+   </ol>;
 }
 ```
 
 * 在class中使用class的变量或者方法，一定要加个this。如this.handlerclick。
 * es6 绑定事件需要`onClick={this.func1.bind(this)}`。
-这样func1和bind里面的参数‘this’的作用域才绑定到了一起（注意es5是不需要这个bind(this)的），func1中如果有this.name这类语句，相当于是使用参数‘this’里面的变量值;或者使用箭头函数func1= (e)=&gt; {函数体}
+这样func1和bind里面的参数‘this’的作用域才绑定到了一起（注意es5是不需要这个bind(this)的），func1中如果有this.name这类语句，相当于是使用参数‘this’里面的变量值;或者使用箭头函数func1= (e)=> {函数体}
 
 ## 小结
 　　经过这番简单的练习后，如果还想看看做一个项目中如何使用react参见下章，一个模仿微博展示的demo（编写ing）。
 　　本文没有对react作深入的研究。通过学习react的使用方法可以看到，react入门的话相对于其他框架还是比较简单的，代码逻辑也很清晰，好维护也好使用。重要的是，需要使用者把从前直接对dom操作的思维方式转换过来，相信会爱上它的。
-　　ps: react 还在发展期，学习的话建议英语好的直接看官方文档，可以少走一些弯路。</myelement></myelement></myelement></react.createelement('a',>
+　　ps: react 还在发展期，学习的话建议英语好的直接看官方文档，可以少走一些弯路。
