@@ -7,13 +7,13 @@
 <body>
 <script>
   var arr = [];
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 128; i++) {
     arr.push(i);
   }
   function test_1() {
     var a = [], b = Math.random();
     for (var i = 0; i < 10; i++) {
-      a.push(arr[Math.floor(b *= 100)]);
+      a.push(arr[Math.floor(b *= 128)]);
       b = b - Math.floor(b);
     }
     //console.log(a)
