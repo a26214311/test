@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var arr = [];
+  for (var i = 0; i < 100; i++) {
+    arr.push(i);
+  }
+  function test_1() {
+    var a = [], b = Math.random();
+    for (var i = 0; i < 10; i++) {
+      a.push(arr[Math.floor(b *= 100)]);
+      b = b - Math.floor(b);
+    }
+    //console.log(a)
+  }
+
+  function test_2() {
+    var a = [];
+    for (var i = 0; i < 10; i++) {
+      a.push(arr[Math.floor(Math.random() * 100)]);
+    }
+    //console.log(a)
+  }
+
+  function test(func) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1000000; i++) {
+      func();
+    }
+    var end = new Date().getTime();
+    return (end - start) + "ms";
+  }
+
+  var time = test(test_1);
+  console.log('test_1:' + time);
+  var time2 = test(test_2);
+  console.log('test_2:' + time2);
+</script>
+</body>
+</html>
