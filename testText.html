@@ -3,8 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <style>
+    a{
+      cursor:pointer;
+    }
+  </style>
 </head>
 <body>
 现在我们就可以为我们的每个任务来定义相应的配置(逐个定义我们为项目定义的任务配置)，然后每个任务的配置对象作为Grunt配置对象(即grunt.initConfig({})所接受的配置对象)的属性，并且这个属性名称与任务名相同。因此"concat"任务就是我们的配置对象中的"concat"键(属性)。下面便是我的"concat"任务的配置对象。
+
+<ul class="nav">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<script>
+  $(document).ready(function() {
+    $(".ul").find(".li").on("click",function(){
+      $(this).addClass("nav-click").siblings(".li").removeClass("nav-click");
+    });
+  });
+</script>
 </body>
 </html>
