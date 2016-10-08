@@ -13,7 +13,7 @@
   var re2 = re.split('<a');
   console.log('re2 = ' + re2);
   for (var i = 0; i < re2.length; i++) {
-    if (i % 2 == 1) {
+    if (i % 2) {
       re2[i] = '<a'.concat(re2[i])
     } else {
       // 查找并替换
