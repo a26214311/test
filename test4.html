@@ -8,7 +8,20 @@
 
 
 <script>
-  var str = "中国，中国人民并没有生活在水深火热之中，但是中国人民的幸福感很低，中国";
+  var str = "<a href='zhongguo'>中国</a>，<a href='zhongguorenmin'>中国人民</a>并没有生活在水深火热之中，但是中国人民的幸福感很低，中国";
+  var re = str.replace(/\<\/a\>/g, '</a><a');
+  var re2 = re.split('<a');
+  console.log('re2 = ' + re2);
+  for (var i = 0; i < re2.length; i++) {
+    if (i % 2 == 1) {
+      re2[i] = '<a'.concat(re2[i])
+    } else {
+      // 查找并替换
+    }
+  }
+  var final = re2.join('');
+  console.log(final);
+
   function test_1() {
     var arr = [];
     for (var i = 0; ;) {
@@ -20,13 +33,13 @@
 //    console.log(arr);
   }
 
-  function test_2(){
+  function test_2() {
     var arr = [];
     var index = str.indexOf('中国');
     arr.push(index);
-    (function dg(){
+    (function dg() {
       index = str.indexOf('中国', index + 1);
-      if(index != -1){
+      if (index != -1) {
         arr.push(index);
         dg()
       }
@@ -44,10 +57,10 @@
   }
 
 
-    var time = test(test_1);
-    console.log('test_1:' + time);
-    var time2 = test(test_2);
-    console.log('test_2:' + time2);
+//  var time = test(test_1);
+//  console.log('test_1:' + time);
+//  var time2 = test(test_2);
+//  console.log('test_2:' + time2);
 </script>
 </body>
 </html>
