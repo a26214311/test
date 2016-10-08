@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<script>
+  var str = "中国，中国人民并没有生活在水深火热之中，但是中国人民的幸福感很低，中国";
+  function test_1() {
+    var arr = [];
+    for (var i = 0; ;) {
+      i = (str.indexOf('中国', i));
+      if (i == -1)
+        break;
+      arr.push(i++);
+    }
+//    console.log(arr);
+  }
+
+  function test_2(){
+    var arr = [];
+    var index = str.indexOf('中国');
+    arr.push(index);
+    (function dg(){
+      index = str.indexOf('中国', index + 1);
+      if(index != -1){
+        arr.push(index);
+        dg()
+      }
+    })();
+//    console.log(arr);
+  }
+
+  function test(func) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1000000; i++) {
+      func();
+    }
+    var end = new Date().getTime();
+    return (end - start) + "ms";
+  }
+
+
+    var time = test(test_1);
+    console.log('test_1:' + time);
+    var time2 = test(test_2);
+    console.log('test_2:' + time2);
+</script>
+</body>
+</html>
