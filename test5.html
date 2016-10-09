@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var str = "中国，中国人民并没有生活在水深火热之中，但是中国人民的幸福感很低，中国";
+  var addJson = [{
+    link: "zhongguorenmin",
+    word: "中国人民"
+  }, {
+    link: "zhongguoren",
+    word: "中国人"
+  }, {
+    link: "zhongguo",
+    word: "中国"
+  }];
+
+  function addTargetA(str, tar) {
+    var replaceStr = str.replace(/\<\/a\>/g, '</a><a');
+    var splitStr = replaceStr.split('<a');
+    for (var i = 0; i < splitStr.length; i++) {
+      if (i % 2) {
+        splitStr[i] = '<a'.concat(splitStr[i])
+      } else {
+        // 处理追加
+        splitStr[i] = splitStr[i].replace(new RegExp(tar.word, 'g'), '<a href="' + tar.link + '">' + tar.word + '</a>');
+      }
+    }
+    var finalStr = splitStr.join('');
+    console.log(finalStr);
+    return finalStr;
+  }
+
+  for (var i = 0; i < addJson.length; i++) {
+    str = addTargetA(str, addJson[i]);
+  }
+</script>
+</body>
+</html>
